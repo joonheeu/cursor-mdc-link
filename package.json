@@ -2,7 +2,7 @@
 	"name": "cursor-mdc-link",
 	"displayName": "%extension.displayName%",
 	"description": "%extension.description%",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"publisher": "udit",
 	"repository": {
 		"type": "git",
