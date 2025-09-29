@@ -2,9 +2,8 @@
 	"name": "cursor-mdc-link",
 	"displayName": "%extension.displayName%",
 	"description": "%extension.description%",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"publisher": "udit",
-	"icon": "images/icon.png",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/joonheeu/cursor-mdc-link.git"
@@ -206,19 +205,16 @@
 		"vscode:prepublish": "pnpm run compile",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
-		"install-deps": "pnpm install",
 		"build": "pnpm run compile",
 		"package": "vsce package",
 		"package-patch": "vsce package --pre-release",
-		"package-major": "vsce package --major",
-		"package-minor": "vsce package --minor",
 		"install-extension": "pnpm run compile && code --install-extension $(ls -t *.vsix | head -1)",
 		"uninstall-extension": "code --uninstall-extension udit.cursor-mdc-link",
 		"reinstall-extension": "pnpm run uninstall-extension && pnpm run install-extension",
 		"build-and-package": "pnpm run compile && pnpm run package",
 		"build-and-install": "pnpm run build-and-package && pnpm run install-extension",
 		"release": "pnpm run build-and-package && gh release create v$(node -p \"require('./package.json').version\") $(ls -t *.vsix | head -1) --title \"v$(node -p \"require('./package.json').version\")\" --notes \"Release v$(node -p \"require('./package.json').version\")\"",
-		"publish-vscode": "npx vsce publish"
+		"publish-vscode": "pnpm dlx vsce publish"
 	},
 	"devDependencies": {
 		"@types/vscode": "^1.74.0",
