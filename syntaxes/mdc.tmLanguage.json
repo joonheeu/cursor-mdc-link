@@ -1,0 +1,51 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "MDC",
+	"patterns": [
+		{
+			"include": "#markdown"
+		},
+		{
+			"include": "#mdc-links"
+		}
+	],
+	"repository": {
+		"markdown": {
+			"patterns": [
+				{
+					"name": "markup.heading.markdown",
+					"match": "^#{1,6}\\s+.*$"
+				},
+				{
+					"name": "markup.bold.markdown",
+					"match": "\\*\\*.*?\\*\\*"
+				},
+				{
+					"name": "markup.italic.markdown",
+					"match": "\\*.*?\\*"
+				},
+				{
+					"name": "markup.inline.raw.markdown",
+					"match": "`.*?`"
+				}
+			]
+		},
+		"mdc-links": {
+			"patterns": [
+				{
+					"name": "markup.underline.link.mdc",
+					"match": "\\[([^\\]]+)\\]\\(mdc:([^)]+)\\)",
+					"captures": {
+						"1": {
+							"name": "string.other.link.title.markdown"
+						},
+						"2": {
+							"name": "markup.underline.link.mdc.target"
+						}
+					}
+				}
+			]
+		}
+	},
+	"scopeName": "text.mdc"
+}

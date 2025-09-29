@@ -1,0 +1,224 @@
+{
+	"name": "cursor-mdc-link",
+	"displayName": "%extension.displayName%",
+	"description": "%extension.description%",
+	"version": "0.1.3",
+	"publisher": "udit",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/joonheeu/cursor-mdc-link.git"
+	},
+	"engines": {
+		"vscode": "^1.74.0"
+	},
+	"categories": ["Other"],
+	"activationEvents": ["onFileOpen:*.mdc", "onFileOpen:*.md"],
+	"main": "./out/extension.js",
+	"l10n": "./l10n",
+	"contributes": {
+		"languages": [
+			{
+				"id": "mdc",
+				"aliases": ["MDC", "mdc"],
+				"extensions": [".mdc"],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "mdc",
+				"scopeName": "text.mdc",
+				"path": "./syntaxes/mdc.tmLanguage.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "mdc.openLink",
+				"title": "Open MDC Link",
+				"category": "MDC"
+			},
+			{
+				"command": "mdc.clearCache",
+				"title": "Clear Cache",
+				"category": "MDC"
+			},
+			{
+				"command": "mdc.showLinkStats",
+				"title": "Show Link Statistics",
+				"category": "MDC"
+			}
+		],
+		"configuration": {
+			"title": "MDC Link Extension",
+			"properties": {
+				"mdcLink.allowedExtensions": {
+					"type": "array",
+					"default": [
+						".mdc",
+						".md",
+						".ts",
+						".js",
+						".json",
+						".html",
+						".css",
+						".scss",
+						".vue",
+						".jsx",
+						".tsx",
+						".py",
+						".java",
+						".cpp",
+						".c",
+						".h",
+						".hpp",
+						".cs",
+						".php",
+						".rb",
+						".go",
+						".rs",
+						".swift",
+						".kt",
+						".scala",
+						".sh",
+						".bat",
+						".ps1",
+						".yml",
+						".yaml",
+						".xml",
+						".sql",
+						".txt"
+					],
+					"description": "%mdcLink.allowedExtensions.description%"
+				},
+				"mdcLink.enableForAllFiles": {
+					"type": "boolean",
+					"default": true,
+					"description": "%mdcLink.enableForAllFiles.description%"
+				},
+				"mdcLink.validateLinks": {
+					"type": "boolean",
+					"default": true,
+					"description": "%mdcLink.validateLinks.description%"
+				},
+				"mdcLink.showBrokenLinkWarnings": {
+					"type": "boolean",
+					"default": true,
+					"description": "%mdcLink.showBrokenLinkWarnings.description%"
+				},
+				"mdcLink.searchPaths": {
+					"type": "array",
+					"default": [],
+					"description": "%mdcLink.searchPaths.description%"
+				},
+				"mdcLink.includeSubdirectories": {
+					"type": "boolean",
+					"default": true,
+					"description": "%mdcLink.includeSubdirectories.description%"
+				},
+				"mdcLink.maxSearchDepth": {
+					"type": "number",
+					"default": 5,
+					"description": "%mdcLink.maxSearchDepth.description%"
+				},
+				"mdcLink.cacheEnabled": {
+					"type": "boolean",
+					"default": true,
+					"description": "%mdcLink.cacheEnabled.description%"
+				},
+				"mdcLink.cacheTimeout": {
+					"type": "number",
+					"default": 300000,
+					"description": "%mdcLink.cacheTimeout.description%"
+				},
+				"mdcLink.excludePatterns": {
+					"type": "array",
+					"default": [
+						"**/node_modules/**",
+						"**/.git/**",
+						"**/dist/**",
+						"**/build/**",
+						"**/.vscode/**"
+					],
+					"description": "%mdcLink.excludePatterns.description%"
+				},
+				"mdcLink.supportRelativePaths": {
+					"type": "boolean",
+					"default": true,
+					"description": "%mdcLink.supportRelativePaths.description%"
+				},
+				"mdcLink.supportAnchorLinks": {
+					"type": "boolean",
+					"default": true,
+					"description": "%mdcLink.supportAnchorLinks.description%"
+				},
+				"mdcLink.supportLineNumbers": {
+					"type": "boolean",
+					"default": true,
+					"description": "%mdcLink.supportLineNumbers.description%"
+				},
+				"mdcLink.linkDecoration": {
+					"type": "string",
+					"enum": ["underline", "none", "dotted", "wavy"],
+					"default": "underline",
+					"description": "%mdcLink.linkDecoration.description%"
+				},
+				"mdcLink.linkColor": {
+					"type": "string",
+					"default": "#007ACC",
+					"description": "%mdcLink.linkColor.description%"
+				},
+				"mdcLink.hoverPreview": {
+					"type": "boolean",
+					"default": true,
+					"description": "%mdcLink.hoverPreview.description%"
+				},
+				"mdcLink.showFileIcons": {
+					"type": "boolean",
+					"default": true,
+					"description": "%mdcLink.showFileIcons.description%"
+				},
+				"mdcLink.autoComplete": {
+					"type": "boolean",
+					"default": true,
+					"description": "%mdcLink.autoComplete.description%"
+				},
+				"mdcLink.suggestRecentFiles": {
+					"type": "boolean",
+					"default": true,
+					"description": "%mdcLink.suggestRecentFiles.description%"
+				},
+				"mdcLink.debugMode": {
+					"type": "boolean",
+					"default": false,
+					"description": "%mdcLink.debugMode.description%"
+				},
+				"mdcLink.logLevel": {
+					"type": "string",
+					"enum": ["error", "warn", "info", "debug"],
+					"default": "info",
+					"description": "%mdcLink.logLevel.description%"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "pnpm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"build": "pnpm run compile",
+		"package": "vsce package",
+		"package-patch": "vsce package --pre-release",
+		"install-extension": "pnpm run compile && code --install-extension $(ls -t *.vsix | head -1)",
+		"uninstall-extension": "code --uninstall-extension udit.cursor-mdc-link",
+		"reinstall-extension": "pnpm run uninstall-extension && pnpm run install-extension",
+		"build-and-package": "pnpm run compile && pnpm run package",
+		"build-and-install": "pnpm run build-and-package && pnpm run install-extension",
+		"release": "pnpm run build-and-package && gh release create v$(node -p \"require('./package.json').version\") $(ls -t *.vsix | head -1) --title \"v$(node -p \"require('./package.json').version\")\" --notes \"Release v$(node -p \"require('./package.json').version\")\"",
+		"publish-vscode": "pnpm dlx vsce publish"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.74.0",
+		"@types/node": "16.x",
+		"typescript": "^4.9.4"
+	}
+}
