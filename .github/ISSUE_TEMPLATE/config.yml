@@ -1,0 +1,17 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📚 Documentation
+    url: https://github.com/joonheeu/cursor-mdc-link#readme
+    about: Check out our comprehensive documentation and examples
+  - name: 💬 Discussions
+    url: https://github.com/joonheeu/cursor-mdc-link/discussions
+    about: Ask questions and share ideas with the community
+  - name: 🐛 Bug Reports
+    url: https://github.com/joonheeu/cursor-mdc-link/issues/new?template=bug_report.yml
+    about: Report a bug or unexpected behavior
+  - name: ✨ Feature Requests
+    url: https://github.com/joonheeu/cursor-mdc-link/issues/new?template=feature_request.yml
+    about: Suggest a new feature or improvement
+  - name: ❓ Questions
+    url: https://github.com/joonheeu/cursor-mdc-link/issues/new?template=question.yml
+    about: Get help or ask questions about the extension

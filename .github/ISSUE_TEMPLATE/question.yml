@@ -1,0 +1,121 @@
+name: ❓ Question / Help
+description: Ask a question or get help with the extension
+title: "[Question]: "
+labels: ["question", "help-wanted"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for asking a question! We're here to help. Please provide as much detail as possible.
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
+
+  - type: dropdown
+    id: question-type
+    attributes:
+      label: Question Type
+      description: What type of question do you have?
+      options:
+        - How to use MDC links
+        - Configuration help
+        - Installation issues
+        - Performance questions
+        - Integration with other tools
+        - Troubleshooting
+        - General usage
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What would you like to know?
+      placeholder: Please describe your question in detail...
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Provide context about your situation
+      placeholder: |
+        - What are you trying to accomplish?
+        - What file types are you working with?
+        - What's your current setup?
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Your environment details
+      placeholder: |
+        - OS: [e.g. macOS 14.0, Windows 11, Ubuntu 22.04]
+        - Cursor IDE Version: [e.g. 0.42.0]
+        - Extension Version: [e.g. 0.1.4]
+        - Project Type: [e.g. TypeScript, React, Node.js]
+    validations:
+      required: true
+
+  - type: textarea
+    id: configuration
+    attributes:
+      label: Current Configuration
+      description: Your current MDC Link extension settings (if relevant)
+      placeholder: |
+        ```json
+        {
+          "mdcLink.enableForAllFiles": true,
+          "mdcLink.allowedExtensions": [".ts", ".js", ".md"]
+        }
+        ```
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples
+      description: If applicable, provide examples of what you're trying to do
+      placeholder: |
+        ```typescript
+        // Example of what you're trying to achieve
+        [UserService](mdc:user-service.ts)
+        ```
+
+  - type: checkboxes
+    id: troubleshooting
+    attributes:
+      label: What I've Tried
+      description: Please check what you've already tried
+      options:
+        - I've read the README documentation
+        - I've checked the configuration options
+        - I've tried restarting Cursor IDE
+        - I've checked the Developer Console for errors
+        - I've searched existing issues
+        - I've tried different file types
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Outcome
+      description: What outcome are you hoping for?
+      placeholder: Describe what you want to achieve or understand...
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Information
+      description: Any other information that might be helpful
+      placeholder: Screenshots, error messages, or any other relevant details...
